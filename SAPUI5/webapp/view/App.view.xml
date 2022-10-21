@@ -1,26 +1,8 @@
-<mvc:View controllerName="dtt.SAPUI5.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-   <Shell id="_IDGenShell1">
-   <App id="_IDGenApp1">
-   <pages>
-   <Page id="IDGenpage1" title="{i18n>appTitle}">
-   <content>
-   <Panel id="_IDGenPanel1" headerText="{i18n>helloPanel}"  class="sapUiResponsiveMargin"
-   width="auto">
-   <content>
-    <Button id="_IDGenButton1" text="{i18n>showHelloButtonText}" press=".onShowHello" class="sapUiSmallMarginEnd">
-    </Button>
-    <Input id="_IDGenInput1" value="{/recipient/name}"
-        description="Hello:{/recipient/name}"
-        valueLiveUpdate="true"
-        width="60%">
-    </Input>
-    </content>
-    </Panel>
-    </content>
-    
-    </Page>
-    
-    </pages>
-    </App>
-    </Shell>
+<mvc:View controllerName="dtt.SAPUI5.controller.App"
+ xmlns="sap.m" 
+ xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true">
+   <Shell id="Shell4">
+   <App id="app"/>
+   </Shell>
 </mvc:View>

@@ -16,13 +16,14 @@
       "toolsId": "b92d5651-1e24-4e8b-9c5b-8bc0b54aa3de"
     },
     "dataSources": {
+      
+    
       "mainService": {
-        "uri": "/sap/opu/odata/",
+        "uri": "/V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
-          "odataVersion": "2.0"
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
         }
       }
     }
@@ -69,10 +70,18 @@
           "bundleName": "dtt.SAPUI5.i18n.i18n"
         }
       },
-      "": {
+      "invoices": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Invoices.json"
+      },
+      "northwind": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {}
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
       }
     },
     "resources": {
@@ -95,27 +104,41 @@
       "routes": [
         {
           "name": "RouteApp",
-          "pattern": "RouteApp",
+          "pattern": "",
           "target": [
-            "TargetApp"
+            "TargetOverview"
           ]
-        }
+        },
+        {
+            "name": "Details",
+            "pattern": "details/{invoicePath}",
+            "target": [
+              "TargetDetails"
+            ]
+          }
       ],
       "targets": {
-        "TargetApp": {
+        "TargetOverview": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "App",
-          "viewName": "App"
-        }
+          "viewId": "Overview",
+          "viewName": "Overview"
+        },
+        "TargetDetails": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "Details",
+            "viewName": "Details"
+          }
       }
     },
     "rootView": {
       "viewName": "dtt.SAPUI5.view.App",
       "type": "XML",
       "async": true,
-      "id": "App"
+      "id": "app"
     }
   }
 }

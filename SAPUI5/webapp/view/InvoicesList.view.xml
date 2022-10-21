@@ -1,0 +1,54 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="dtt.SAPUI5.controller.InvoicesList">
+    <Table id="_IDGenList1" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{northwind>/Invoices}">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>invoiceListTitle}" />
+                <ToolbarSpacer />
+                <SearchField width="50%" search=".onFilterInvoices" />
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column hAling="End" minScreenWidth="Small" demandPopin="true" width="5em">
+                <Text text="{i18n>columnQuantity}" />
+            </Column>
+
+            <Column>
+                <Text text="{i18n>columnName}" />
+            </Column>
+
+            <Column minScreenWidth="Small" demandPopin="true">
+                <Text text="{i18n>columnStatus}" />
+            </Column>
+
+            <Column minScreenWidth="Tablet">
+                <Text text="{i18n>columnSupplier}" />
+            </Column>
+
+            <Column hAling="End">
+                <Text text="{i18n>columnPrice}" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem type="Navigation" 
+                            press=".navigateToDetails">
+                <cells>
+                    <ObjectNumber number="{northwind>Quantity} " emphasized="false" />
+                    <ObjectIdentifier title="{northwind>ProductName}" />
+                    <Text text="{path:'northwind>Status',
+                    formatter:'.formatter.invoiceStatus'}" />
+                    <Text text="{northwind>ShipperName}" />
+                     <ObjectNumber number="{parts:[{path:'northwind>ExtendedPrice'},{path:'Currency>/usd'}],
+
+                            type:'sap.ui.model.type.Currency', formatOptions:{showMeasure:false}}"
+
+                            numberUnit="{Currency>/usd}"
+
+                            numberState="{= ${northwind>ExtendedPrice}>50 ? 'Success' : 'Error'}">
+
+                         </ObjectNumber >
+
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>

@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+
+<Panel id="_IDGenPanel2" headerText="{i18n>panelFrTitle}" class="sapUiResponsiveMargin" width="58%"
+ expandable="{device>/system/phone}" expanded="{= !${device>/system/phone}}">
+<f:SimpleForm id="form" editable="true">
+<f:content>
+<Label id="_IDGenLabel1" text="{i18n>labelPerson}" labelFor="persName">
+</Label>
+<Input id="persName" width="20%">
+</Input>
+</f:content>
+</f:SimpleForm>
+</Panel>
+</core:FragmentDefinition>
